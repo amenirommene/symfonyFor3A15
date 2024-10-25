@@ -1,0 +1,13 @@
+{% if listBook is empty %}
+<h1>Tableau vide </h1>
+{% else %}
+<ul>
+{% for book in listBook %}
+<li>
+{{book.id}} - {{book.title | upper}} - 
+{{ book.publicationDate | date('y/m/d')}} - {{book.author.username}}
+</li>
+
+{% endfor %}
+</ul>
+{% endif %}

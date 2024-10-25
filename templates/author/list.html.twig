@@ -1,0 +1,16 @@
+{% set nb = 0 %}
+{% if list is empty %}
+<h1>Tableau vide </h1>
+{% else %}
+<ul>
+{% for author in list %}
+{% set nb = nb + author.nbBooks %}
+<li>
+<a href="{{ path('app_author')}}">details</a>
+{{author.id}} - {{author.username | upper}}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+Le nombre d'auteurs est : {{list | length}} <br>
+Le nombre de livres : {{ nb }}
